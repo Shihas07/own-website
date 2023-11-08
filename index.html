@@ -420,8 +420,8 @@
                         <span id="nameError" class="error text-danger "></span>
                     </div>
                     <div class="form-group col-sm-6">
-                        <input type="number" size="50" name="number" class="form-control" id="mobile" placeholder="number" >
-                        <span id="numberError" classs="error text-danger "></span>
+                        <input type="number" size="50" name="number" class="form-control" id="mobile" placeholder="number">
+                        <span id="numberError" classs="error text-danger " style="color:brown"></span>
                     </div>
                     <div class="form-group col-sm-6">
                         <input type="email" name="email" class="form-control" placeholder="Enter Email" id="emi" >
@@ -493,22 +493,26 @@
        var name2 = document.getElementById("nameError");
        var emaill = document.getElementById("emi").value;
        var email2 = document.getElementById("emailError");
+       var number1 = document.getElementById("mobile").value;
+       var number2 = document.getElementById("numberError");
        if(name===""){
         name2.innerHTML="Enter a valid name";
        }
-       if(emaill===""){
+    //     else if(name==="number"){
+    //     name2.innerHTML="invalid"
+    //    }
+     if(emaill===""){
         email2.innerHTML="enter a valid email"
        }
-    }
+        if(number1.length!==10){
+        number2.innerHTML="enter a valid number"
+       }
+    //    else{
+    //       number2.innerHTML="invalid number"
+    //    }
+
+    else{
         
-    </script>
-
-    
-
-
-
-
-    <script>
         $("#submit-form").submit((e)=>{
             e.preventDefault()
             $.ajax({
@@ -518,7 +522,7 @@
                 success:function (response){
                     // alert("Form submitted successfully")
                     window.location.reload()
-                    window.location.href="https://shihas07.github.io/own-website/"
+                    // window.location.href="https://shihas07.github.io/own-website/"
                 },
                 error:function (err){
                     alert("Something Error")
@@ -526,7 +530,17 @@
                 }
             })
         })
+    }
+       
+    }
+        
     </script>
+
+    
+
+
+
+
 
 
     <!-- core  -->
