@@ -141,12 +141,12 @@
                             <img src="assets/imgs/analytics.svg"
                                 alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
                                 class="icon">
-                            <!-- <h6 class="title">Iusto</h6>
+                             <h6 class="title">Iusto</h6>
                             <p class="subtitle">Labore velit culpa adipisci excepturi consequuntur itaque in nam
                                 molestias dolorem iste quod.</p> -->
                         <!-- </div> -->
                     <!-- </div> -->
-                <!-- </div> --> -->
+                <!-- </div> -->
             </div><!-- end of row -->
         </div>
     </section><!-- end of service section -->
@@ -404,17 +404,17 @@
         </div>end of container -->
     <!-- </section>end of blog section  -->
 
-    <!-- contact section -->
-    <section class="section" id="contact">
+    <!-- contact section  -->
+    <!-- <section class="section" id="contact">
         <div class="container text-center">
             <p class="section-subtitle">How can you communicate?</p>
             <h6 class="section-title mb-5">Contact Me</h6>
-            <!-- contact form -->
-            <form id="submit-form"  action="">
+            contact form -->
+            <!-- <form id="submit-form"  action="">
                 <div class="form-row">
-                    <!-- <div>
-                        <input type="text(now(),"time_tag")">
-                    </div> -->
+                    
+                        
+                    
                     <div class="form-group col-sm-6">
                         <input type="text" size="50" name="name" class="form-control" id="nameee" placeholder="Your Name" >
                         <span id="nameError" class="error text-danger "></span>
@@ -433,15 +433,61 @@
                             <span id="msgError" class="error"></span>
                     </div>
                     <div class="form-group col-sm-12 mt-3">
-                        <!-- <input type="submit" value="Send Message" class="btn btn-outline-primary rounded"> -->
+                        
                         <button type="submit" id="formbutton" class="btn btn-primary" onclick="hai()">send me</button>
                     </div>
                 </div>
-            </form><!-- end of contact form -->
-        </div><!-- end of container -->
-    </section><!-- end of contact section -->
+            </form>
+        </div>
+    </section> -->
 
-    <!-- <! <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">-- \\-----modal----\\\ --> -->
+    <!-- <! <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">-- \\-----modal----\\\ --> 
+
+
+        <!-- contact---- -->
+
+
+        <!-- \\-----form---\\\\ -->
+        <div class="container">
+
+        <form id="submit-form"  action="">
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="name" placeholder="Your Name" name="Name" >
+                        <label for="name">Your Name</label>
+                        <span id="nameError" class="error"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email" placeholder="Your Email" name="Email" >
+                        <label for="email">Your Email</label>
+                        <span id="emailError" class="error"></span>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="number" placeholder="phone-number" name="number" >
+                        <label for="number">number</label>
+                        <span id="numberError" class="error"></span>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a message here" id="msg"  style="height: 100px" name="Message"></textarea>
+                        <label for="message">Message</label>
+                        <span id="msgError" class="error"></span>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary py-3 px-3" type="submit">Send Message</button>
+                </div>
+            </div>
+         </form>
+
+        </div>
+        
     
 <div class="modal" id="myModal">
     <div class="modal-dialog">
@@ -487,7 +533,7 @@
     </div> <!-- end of page footer -->
 
     <!-- \\---dom-----\\\ -->
-    <script>
+    <!-- <script>
         function hai(){
        var name = document.getElementById("nameee").value;
        var name2 = document.getElementById("nameError");
@@ -498,21 +544,13 @@
        if(name===""){
         name2.innerHTML="Enter a valid name";
        }
-    //     else if(name==="number"){
-    //     name2.innerHTML="invalid"
-    //    }
      if(emaill===""){
         email2.innerHTML="enter a valid email"
        }
         if(number1.length!==10){
         number2.innerHTML="enter a valid number"
        }
-    //    else{
-    //       number2.innerHTML="invalid number"
-    //    }
-
-    else{
-        
+     else{
         $("#submit-form").submit((e)=>{
             e.preventDefault()
             $.ajax({
@@ -520,7 +558,7 @@
                 data:$("#submit-form").serialize(),
                 method:"post",
                 success:function (response){
-                    // alert("Form submitted successfully")
+                    alert("Form submitted successfully")
                     window.location.reload()
                     // window.location.href="https://shihas07.github.io/own-website/"
                 },
@@ -531,10 +569,108 @@
             })
         })
     }
-       
-    }
+
+        }
         
-    </script>
+    </script> -->
+
+
+    <!-- -------new-script----- -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("submit-form");
+    
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+    
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const check = "@";
+                const number = document.getElementById("number").value;
+                const msg = document.getElementById("msg").value; // Use "message" instead of "msg" to match the HTML id attribute.
+    
+                const nameError = document.getElementById("nameError");
+                const emailError = document.getElementById("emailError");
+                const numberError = document.getElementById("numberError");
+                const msgError = document.getElementById("msgError");
+    
+                let isValid = true; // Assume the form is valid initially.
+    
+                // Validation for name
+                if (name === "") {
+                    nameError.textContent = "Name is required.";
+                    isValid = false; // Mark the form as invalid.
+                } else if (name.length < 3) {
+                    nameError.textContent = "Name must be at least 3 characters.";
+                    isValid = false; // Mark the form as invalid.
+                } else {
+                    nameError.textContent = "";
+                }
+    
+                // Validation for email
+                if (email === "") {
+                    emailError.textContent = "Email is required.";
+                    isValid = false; // Mark the form as invalid.
+                } else if (!email.includes(check)) {
+                    emailError.textContent = "Email is not valid.";
+                    isValid = false; // Mark the form as invalid.
+                } else {
+                    emailError.textContent = "";
+                }
+    
+                // Validation for subject
+                if(number.length!==10) {
+                    numberError.innerHTML = "number is required.";
+                    isValid = false; // Mark the form as invalid.
+                } else {
+                    numberError.textContent = "";
+                }
+    
+                // Validation for message
+                if (msg === "") {
+                    msgError.textContent = "Enter a message";
+                    isValid = false; // Mark the form as invalid.
+                } else {
+                    msgError.textContent = "";
+                }
+    
+                // Submit the form if it's valid
+                if (isValid) {
+                    // You can add code here to submit the form, e.g., via AJAX or by removing the preventDefault and letting the form submit naturally.
+                    alert("Form submitted successfully.");
+                    form.reset(); // Reset the form fields after successful submission.
+                }
+            });
+        });
+
+        </script>
+    
+
+
+// <script>
+    // else{
+    $("#submit-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycbwQHkoc1TMeMdRNbYWDnH-YeW0CiCPadO7Hc59A_B14EXGfu4E5KcHHhbDlEgWMUFAQNw/exec",
+            data:$("#submit-form").serialize(),
+            method:"post",
+            success:function (response){
+                // alert("Form submitted successfully")
+                window.location.reload()
+                //window.location.href="https://google.com"
+            },
+            error:function (err){
+                alert("Something Error")
+
+            }
+        })
+    })
+
+// }
+</script>
+
 
     
 
